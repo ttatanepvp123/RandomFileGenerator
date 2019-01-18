@@ -5,13 +5,21 @@
 #include <cstdio>
 #include <iomanip>
 
+#if !defined(LAST_COMMIT_ID)
+#define LAST_COMMIT_ID "UNKOWN"
+#endif
+
 constexpr char version[] = "0.1.0";
 
 int main(int argc, char const *argv[]){
     std::string FileName("output.rnd");
     long long FileSize{0};
     for(size_t i = 0; i < argc; i++){
-        if (!strcmp(argv[i], "--help") || !strcmp(argv[i], "-h")) {
+        if (!strcmp(argv[i], "--version") || !strcmp(argv[i], "-v")) {
+            std::cout << "Version : " << version << std::endl;
+            std::cout << "Last Commit Id : " << LAST_COMMIT_ID << std::endl;
+            exit(EXIT_SUCCESS);
+        } else if (!strcmp(argv[i], "--help") || !strcmp(argv[i], "-h")) {
             char margin[] = "     ";
             std::cout << "[ Size Options ]" << std::endl;
             std::cout << margin << "-E to choose the Exabyte number" << std::endl;
