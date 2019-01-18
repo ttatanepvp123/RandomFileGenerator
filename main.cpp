@@ -19,6 +19,8 @@ int main(int argc, char const *argv[]){
             std::cout << "Version : " << version << std::endl;
             std::cout << "Last Commit Id : " << LAST_COMMIT_ID << std::endl;
             exit(EXIT_SUCCESS);
+        } else if (!strcmp(argv[i], "--FileName") || !strcmp(argv[i], "-fn") && i+1 < argc) {
+            FileName = argv[i+1];
         } else if (!strcmp(argv[i], "--help") || !strcmp(argv[i], "-h")) {
             char margin[] = "     ";
             std::cout << "[ Size Options ]" << std::endl;
